@@ -22,13 +22,50 @@ public class ejercicio15 {
 			System.out.print("["+vVentas[i]+"] ");
 		}
 	}
+
+	public static void mostrarVentasInversa(int vVentas[]){
+		int i;
+		for(i = vVentas.length - 1;i >= 0;i--){
+			System.out.print("["+vVentas[i]+"]");
+		}
+	}
+
+	public static void sumaVentas(int vVentas[]) {
+		int suma=0, i;
+		for(i=0;i<vVentas.length;i++) {
+			suma = suma + vVentas[i];
+		}
+		System.out.println("Ventas totales: " + suma);
+	}
 	
-	   public static void mostrarVentasInversa(int vVentas[]){
-	        int i;
-	        for(i = vVentas.length - 1;i >= 0;i--){
-	            System.out.print("["+vVentas[i]+"]");
-	        }
-	    }
+    public static void mostrarMejorMes(int vVentas[]){
+        String[] vMeses = {"Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"};
+        int i, mes = 0, mayor = vVentas[0];
+        for(i = 1;i < vVentas.length;i++){
+            if  (vVentas[i] > mayor){
+                mayor = vVentas[i];
+                mes = i;
+            }
+        }
+        System.out.println("El mejor mes es "+vMeses[mes]+" con "+mayor+" ventas");
+    }
+	
+	public static void rrellenarMeses(int vMeses[]) {
+		int i;
+		for(i=0; i< vMeses.length;i++) {
+			
+		}
+	}
+	
+    public static void mostrarVentasTotalesMesesPares(int vVentas[]){
+        int i, suma = 0;
+        for(i = 0;i < vVentas.length;i++){
+            if  (((i + 1) % 2) == 0){
+                suma = suma + vVentas[i];
+            }
+        }
+        System.out.print("\n Ventas totales: "+suma);
+    }
 
 	public static void main(String[] args) {
 		Scanner entrada = new Scanner(System.in);
@@ -57,10 +94,13 @@ public class ejercicio15 {
 				mostrarVentasInversa(vVentas);
 				break;
 			case 4:
+				sumaVentas(vVentas);
 				break;
 			case 5:
+				mostrarVentasTotalesMesesPares(vVentas);
 				break;
-			case 6:;
+			case 6:
+				mostrarMejorMes( vVentas);
 			break;
 			case 7:
 				System.out.print("¡Hasta la próxima!");
